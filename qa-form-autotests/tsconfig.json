@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": ["es2020", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@page-object-fixtures": ["page-object-model/fixtures/pomFixture.ts"],
+      "@page-object-models": ["page-object-model/index.ts"],
+      "@shared/test-data": ["test-data/index.ts"],
+    },
+    "resolveJsonModule": true,
+    "rootDir": ".",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2020",
+    "typeRoots": ["node_modules/@types"],
+    "useUnknownInCatchVariables": false
+  },
+  "exclude": ["node_modules", "tmp", "scripts"],
+  "include": ["**/*.ts", "**/*.js"]
+}
