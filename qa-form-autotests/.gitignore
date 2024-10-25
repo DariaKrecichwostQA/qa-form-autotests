@@ -1,0 +1,44 @@
+node_modules/
+/test-results/
+/playwright-report/
+.github/
+/blob-report/
+/playwright/.cache/
+allure-report/
+allure-results/
+json-results/
+junit-results/
+/playwright-report/
+/playwright/.cache/
+driver-logs/**/*driver.log
+pageobjects/out/**/*Page.js
+.auth/
+output/
+blob-report/
+
+# Files
+testFlag*.txt
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/
+.history/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Local configuration files
+.env.local
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
