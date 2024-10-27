@@ -752,7 +752,7 @@ export type User = {
     password: string;
     date: string;
     language: LanguageOption['value'];
-    displayedLanguage: LanguageOption['text'];
+    diallingCodeOrderNumber: number;
     phone: string;
 };
 
@@ -764,8 +764,8 @@ export const users: User[] = [
         lastname: 'Kowalski',
         password:'Password1!',
         date: '1990-01-15',
-        language: 'pl',
-        displayedLanguage: 'Polski',
+        language: languages[95].value,
+        diallingCodeOrderNumber: 171,
         phone: '123456789',
     },
     {
@@ -775,7 +775,7 @@ export const users: User[] = [
         date: '1992-05-23',
         password:'Password2!',
         language: 'pl',
-        displayedLanguage: 'Polski',
+        diallingCodeOrderNumber: 171,
         phone: '987654321',
     },
     {
@@ -785,7 +785,7 @@ export const users: User[] = [
         password:'Pass#word3!',
         date: '1988-11-30',
         language: 'pl',
-        displayedLanguage: 'Polski',
+        diallingCodeOrderNumber: 171,
         phone: '512345678',
     },
     {
@@ -795,7 +795,7 @@ export const users: User[] = [
         password:'',
         date: '',
         language: "",
-        displayedLanguage: "",
+        diallingCodeOrderNumber: 0,
         phone: '',
     },
 ];

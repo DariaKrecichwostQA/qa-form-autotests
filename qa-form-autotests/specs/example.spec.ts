@@ -1,5 +1,5 @@
 import { test } from '@page-object-models';
-import { users } from '../test-data/users';
+import {users} from '../test-data/users';
 import { expect } from "playwright/test";
 
 test('User registration with required fields only', async ({ page, registrationPage, confirmationPage, softAssert }) => {
@@ -46,7 +46,8 @@ test("User registration with all fields", async ({ page, registrationPage, confi
   await registrationPage.fillRepeatPasswordInput(users[1].password);
   await registrationPage.fillDateOfBirthInput(users[1].date);
   await registrationPage.clickflagSelector();
-  await registrationPage.selectFlag(171)
+  await registrationPage.selectFlag(users[1].diallingCodeOrderNumber)
+  await registrationPage.selectLanguage(users[1].language)
   await registrationPage.fillPhoneNumberInput(users[1].phone);
   await registrationPage.checkCheckbox1();
   await registrationPage.checkCheckbox2();
@@ -136,7 +137,7 @@ test("Validation check for email field", async ({ page, registrationPage, softAs
   }
 });
 
-test("SValidation check for Password and Repeat Password fields", async ({ page, registrationPage, softAssert }) => {
+test("Validation check for Password and Repeat Password fields", async ({ page, registrationPage, softAssert }) => {
   await page.goto('http://localhost:8080');
 
   const errorFlag = { hasError: false };

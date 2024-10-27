@@ -36,7 +36,7 @@ export class RegistrationPagePo extends BasePage {
             input: page.locator("input[name='date']"),
             errorMessage: page.locator('html > body > div > div > div > div > div > form > span:nth-of-type(6) > label > span')
         };
-        this.language = page.locator("body > div > div > div > div > div > form > span:nth-child(7) > label > input");
+        this.language = page.locator("div[class='input-wrapper'] label");
         this.flagSelector = page.locator('.phone-input.vue-tel-input div[tabindex="0"]');
         this.flagOption = {
             option: page.locator(`.phone-input.vue-tel-input div[tabindex="0"] > ul > li:nth-child(${number})`),
@@ -92,6 +92,9 @@ export class RegistrationPagePo extends BasePage {
         const optionLocator = this.flagSelector.locator(`ul > li:nth-child(${number})`);
         await optionLocator.waitFor({ state: 'visible' });
         await optionLocator.click();
+    }
+    async selectLanguage(value:string){
+        await this.language.selectOption(value)
     }
     async fillPhoneNumberInput(value: string) {
         await this.phoneNumberInput.input.scrollIntoViewIfNeeded();

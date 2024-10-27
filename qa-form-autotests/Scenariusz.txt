@@ -24,9 +24,9 @@ Pojawia się plansza z podziękowaniem za rejestrację, zawierająca imię użyt
 5. Wypełnij pole "Hasło" (wprowadź hasło).
 6. Wypełnij pole "Powtórz hasło" (wprowadź ponownie hasło).
 7. Wybierz datę urodzenia: 1990-01-15.
-8. Wybierz język.
-9. Wybierz flagę.
-10. Wypełnij numer telefonu.
+8. Wybierz język: polski
+9. Wybierz flagę/numer kierunkowy: polska.
+10. Wypełnij numer telefonu. 123456789
 11. Zaznacz checkbox "Akceptuję regulamin oraz politykę prywatności".
 12. Zaznacz checkbox "Wyrażam zgodę na otrzymywanie informacji na podany przeze mnie adres e‑mail".
 13. Kliknij przycisk "Zarejestruj".
