@@ -19,7 +19,9 @@ export class RegistrationPagePo extends BasePage {
     public readonly language: Locator;
     public readonly phoneNumberInput: { readonly input: Locator, readonly errorMessage: Locator };
     public readonly checkbox1: Locator;
+    public readonly regulationsLink: Locator
     public readonly checkbox2: Locator;
+    public readonly policyLink: Locator;
     public readonly submitButton: Locator;
 
     constructor(page: Page) {
@@ -40,8 +42,10 @@ export class RegistrationPagePo extends BasePage {
             input: page.locator(".phone-input.vue-tel-input input"),
             errorMessage: page.locator(".phone-input.vue-tel-input + span.errors")
         };
-        this.checkbox1 = page.locator('form div').filter({ hasText: 'Akceptuję regulamin oraz' }).locator('div')
-        this.checkbox2 = page.locator('form div').filter({ hasText: 'Wyrażam zgodę na otrzymywanie' })
+        this.checkbox1 = page.locator('html > body > div > div > div > div > div > form > span:nth-of-type(8) > label > div > div')
+        this.regulationsLink = page.locator('a[href="/regulamin"]')
+        this.checkbox2 = page.locator('html > body > div > div > div > div > div > form > span:nth-of-type(9) > label > div > div')
+        this.policyLink = page.locator('a[href="/polityka-prywatnosci"]')
         this.submitButton = page.locator('button[type="submit"]');
     }
 
@@ -103,5 +107,15 @@ export class RegistrationPagePo extends BasePage {
         await this.submitButton.scrollIntoViewIfNeeded();
         await this.submitButton.waitFor({ state: 'visible' });
         await this.submitButton.click();
+    }
+    async clickRegulationsLink() {
+        await this.regulationsLink.scrollIntoViewIfNeeded();
+        await this.regulationsLink.waitFor({ state: 'visible' });
+        await this.regulationsLink.click();
+    }
+    async clickPolicyLink() {
+        await this.policyLink.scrollIntoViewIfNeeded();
+        await this.policyLink.waitFor({ state: 'visible' });
+        await this.policyLink.click();
     }
 }

@@ -216,3 +216,92 @@ test("Validation check for phone number field", async ({ page, registrationPage,
     throw new Error('Test zakończony niepowodzeniem z powodu błędów walidacji.');
   }
 });
+test("Validation check for name field", async ({ page, registrationPage, softAssert }) => {
+  await page.goto("http://localhost:8080");
+
+  await registrationPage.fillNameInput("Jan");
+  const errorFlag1 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.nameInput.errorMessage).toHaveText(''),
+      'Sprawdzenie braku wiadomości błędu dla poprawnego imienia "Jan"',
+      errorFlag1
+  );
+
+  await registrationPage.fillNameInput("1");
+  const errorFlag2 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.nameInput.errorMessage).toContainText("To pole może zawierać tylko litery, spacje i \"-\""),
+      'Sprawdzenie błędu dla niepoprawnego imienia "1"',
+      errorFlag2
+  );
+
+  await registrationPage.fillNameInput(" ");
+  const errorFlag3 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.nameInput.errorMessage).toHaveText("Pole Imię jest wymagane"),
+      'Sprawdzenie błędu wymaganego pola Imię',
+      errorFlag3
+  );
+
+  await registrationPage.fillNameInput("Daria Alicja");
+  const errorFlag4 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.nameInput.errorMessage).toHaveText(''),
+      'Sprawdzenie braku wiadomości błędu dla poprawnego imienia "Daria Alicja"',
+      errorFlag4
+  );
+
+  if (errorFlag1.hasError || errorFlag2.hasError || errorFlag3.hasError || errorFlag4.hasError) {
+    throw new Error('Test zakończony niepowodzeniem z powodu błędów walidacji w polu "Imię".');
+  }
+});
+
+test("Validation check for last name field", async ({ page, registrationPage, softAssert }) => {
+  await page.goto("http://localhost:8080");
+
+  await registrationPage.fillLastNameInput("Kowalski");
+  const errorFlag1 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.lastNameInput.errorMessage).toHaveText(''),
+      'Sprawdzenie braku wiadomości błędu dla poprawnego nazwiska "Kowalski"',
+      errorFlag1
+  );
+
+  await registrationPage.fillLastNameInput("1");
+  const errorFlag2 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.lastNameInput.errorMessage).toContainText("To pole może zawierać tylko litery, spacje i \"-\""),
+      'Sprawdzenie błędu dla niepoprawnego nazwiska "1"',
+      errorFlag2
+  );
+
+  await registrationPage.fillLastNameInput(" ");
+  const errorFlag3 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.lastNameInput.errorMessage).toHaveText("Pole Nazwisko jest wymagane"),
+      'Sprawdzenie błędu wymaganego pola Nazwisko',
+      errorFlag3
+  );
+
+  await registrationPage.fillLastNameInput("Kowalski Nowak");
+  const errorFlag4 = { hasError: false };
+  await softAssert(
+      async () => expect(await registrationPage.lastNameInput.errorMessage).toHaveText(''),
+      'Sprawdzenie braku wiadomości błędu dla poprawnego nazwiska "Kowalski Nowak"',
+      errorFlag4
+  );
+
+  if (errorFlag1.hasError || errorFlag2.hasError || errorFlag3.hasError || errorFlag4.hasError) {
+    throw new Error('Test zakończony niepowodzeniem z powodu błędów walidacji w polu "Nazwisko".');
+  }
+});
+test("Check the redirection to the regulations page", async ({page, registrationPage})=> {
+  await page.goto("http://localhost:8080");
+  await registrationPage.clickRegulationsLink();
+  await expect(page).toHaveURL("http://localhost:8080/regulamin");
+});
+test("Check the redirection to the policy page", async ({page, registrationPage})=> {
+  await page.goto("http://localhost:8080");
+  await registrationPage.clickPolicyLink();
+  await expect(page).toHaveURL("http://localhost:8080/polityka-prywatnosci");
+});
