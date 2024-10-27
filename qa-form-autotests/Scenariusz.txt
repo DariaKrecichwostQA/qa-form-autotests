@@ -137,9 +137,7 @@ Przekierowanie na adres **/polityka-prywatnosci**.
 
 ### Wykryte błędy:
 1. Brak przekierowania na strony **/regulamin** oraz **/polityka-prywatności**.
-2. Komunik
-
-at "Pole password jest wymagane" powinien brzmieć "Pole Hasło jest wymagane".
+2. Komunikat "Pole password jest wymagane" powinien brzmieć "Pole Hasło jest wymagane".
 3. Niekonsekwencja w stosowaniu znaków interpunkcyjnych na końcu komunikatów walidacyjnych (w przypadku walidacji wymagań dla hasła zdanie kończy się znakiem "!", podczas gdy w innych komunikatach nie ma nawet kropki).
 
 ### Notatki:
