@@ -45,6 +45,8 @@ test("User registration with all fields", async ({ page, registrationPage, confi
   await registrationPage.fillPasswordInput(users[1].password);
   await registrationPage.fillRepeatPasswordInput(users[1].password);
   await registrationPage.fillDateOfBirthInput(users[1].date);
+  await registrationPage.clickflagSelector();
+  await registrationPage.selectFlag(171)
   await registrationPage.fillPhoneNumberInput(users[1].phone);
   await registrationPage.checkCheckbox1();
   await registrationPage.checkCheckbox2();
