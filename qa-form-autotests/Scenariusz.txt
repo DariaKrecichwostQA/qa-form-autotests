@@ -1,0 +1,134 @@
+### Scenariusz: Sprawdzenie formularza rejestracji
+
+#### Przypadek 1: Wypełnienie tylko wymaganych pól w formularzu
+1. Otwórz stronę z formularzem rejestracji.
+2. Wypełnij pole "Imię" wartością: Jan.
+3. Wypełnij pole "Nazwisko" wartością: Kowalski.
+4. Wypełnij pole "E-mail" wartością: jan.kowalski@example.pl.
+5. Wypełnij pole "Hasło" (wprowadź hasło).
+6. Wypełnij pole "Powtórz hasło" (wprowadź ponownie hasło).
+7. Wybierz datę urodzenia: 1990-01-15.
+8. Zaznacz checkbox "Akceptuję regulamin oraz politykę prywatności".
+9. Kliknij przycisk "Zarejestruj".
+
+**Oczekiwany rezultat:**
+Pojawia się plansza z podziękowaniem za rejestrację, zawierająca imię użytkownika oraz jego adres e-mail.
+
+---
+
+#### Przypadek 2: Wypełnienie wszystkich pól w formularzu
+1. Otwórz stronę z formularzem rejestracji.
+2. Wypełnij pole "Imię" wartością: Jan.
+3. Wypełnij pole "Nazwisko" wartością: Kowalski.
+4. Wypełnij pole "E-mail" wartością: jan.kowalski@example.pl.
+5. Wypełnij pole "Hasło" (wprowadź hasło).
+6. Wypełnij pole "Powtórz hasło" (wprowadź ponownie hasło).
+7. Wybierz datę urodzenia: 1990-01-15.
+8. Wybierz język.
+9. Wybierz flagę.
+10. Wypełnij numer telefonu.
+11. Zaznacz checkbox "Akceptuję regulamin oraz politykę prywatności".
+12. Zaznacz checkbox "Wyrażam zgodę na otrzymywanie informacji na podany przeze mnie adres e‑mail".
+13. Kliknij przycisk "Zarejestruj".
+
+**Oczekiwany rezultat:**
+Pojawia się plansza z podziękowaniem za rejestrację, zawierająca imię użytkownika oraz jego adres e-mail.
+
+---
+
+#### Przypadek 3: Sprawdzenie walidacji wymaganych pól
+1. Otwórz stronę z formularzem rejestracji.
+2. Kliknij przycisk "Zarejestruj".
+
+**Oczekiwany rezultat:**
+Pod wszystkimi wymaganymi polami pojawiają się wiadomości informujące, że pole {nazwa_pola} jest wymagane.
+
+---
+
+#### Przypadek 4: Sprawdzenie walidacji pola "E-mail"
+1. Wypełnij pole "E-mail" wartością (puste).
+   - **Oczekiwany rezultat:** Brak wiadomości.
+2. Wypełnij pole "E-mail" wartością: jan.
+   - **Oczekiwany rezultat:** Wiadomość: "Pole E-mail musi być poprawnym adresem e-mail."
+3. Wypełnij pole "E-mail" wartością: jan@$#%@!.pl.
+   - **Oczekiwany rezultat:** Wiadomość: "Pole E-mail musi być poprawnym adresem e-mail."
+
+---
+
+#### Przypadek 5: Sprawdzenie walidacji pola "Hasło" i "Powtórz hasło"
+1. Otwórz stronę z formularzem rejestracji.
+2. Wypełnij pole "Hasło" wartością: Password1!.
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+3. Wypełnij pole "Powtórz hasło" wartością: Password1!.
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+4. Wypełnij pole "Hasło" wartością: 1.
+   - **Oczekiwany rezultat:** Wiadomość: "Hasło musi zawierać co najmniej 8 znaków, dużą literę, znak specjalny!"
+5. Wypełnij pole "Hasło" wartością: 1A.
+   - **Oczekiwany rezultat:** Wiadomość: "Hasło musi zawierać co najmniej 8 znaków, znak specjalny!"
+6. Wypełnij pole "Hasło" wartością: 1A!.
+   - **Oczekiwany rezultat:** Wiadomość: "Hasło musi zawierać co najmniej 8 znaków!"
+7. Wypełnij pole "Powtórz hasło" wartością: 1A.
+   - **Oczekiwany rezultat:** Wiadomość: "Hasła nie są jednakowe!"
+
+---
+
+#### Przypadek 6: Sprawdzenie walidacji pola "Numer telefonu"
+1. Otwórz stronę z formularzem rejestracji.
+2. Wypełnij pole "Numer telefonu" wartością: 111222333.
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+3. Wypełnij pole "Numer telefonu" wartością: 1.
+   - **Oczekiwany rezultat:** Wiadomość: "To pole musi zawierać co najmniej 9 cyfr."
+4. Wypełnij pole "Numer telefonu" wartością: +112312313.
+   - **Oczekiwany rezultat:** Wiadomość: "To pole może zawierać tylko cyfry i spacje."
+5. Wypełnij pole "Numer telefonu" wartością: 1123123 13.
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+
+---
+
+#### Przypadek 7: Sprawdzenie walidacji pola "Imię"
+1. Otwórz stronę z formularzem rejestracji.
+2. Wypełnij pole "Imię" wartością: Jan.
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+3. Wypełnij pole "Imię" wartością: 1.
+   - **Oczekiwany rezultat:** Wiadomość: "To pole może zawierać tylko litery, spacje i znak '-'."
+4. Wypełnij pole "Imię" wartością: " " (znak spacji).
+   - **Oczekiwany rezultat:** Wiadomość: "Pole Imię jest wymagane."
+5. Wypełnij pole "Imię" wartością: "Daria Alicja".
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+
+---
+
+#### Przypadek 8: Sprawdzenie walidacji pola "Nazwisko"
+1. Otwórz stronę z formularzem rejestracji.
+2. Wypełnij pole "Nazwisko" wartością: Kowalski.
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+3. Wypełnij pole "Nazwisko" wartością: 1.
+   - **Oczekiwany rezultat:** Wiadomość: "To pole może zawierać tylko litery, spacje i znak '-'."
+4. Wypełnij pole "Nazwisko" wartością: " " (znak spacji).
+   - **Oczekiwany rezultat:** Wiadomość: "Pole Nazwisko jest wymagane."
+5. Wypełnij pole "Nazwisko" wartością: "Kowalski Nowak".
+   - **Oczekiwany rezultat:** Brak wiadomości pod polem.
+
+---
+
+#### Przypadek 9: Sprawdzenie przekierowania do strony "Regulamin"
+1. Otwórz stronę z formularzem rejestracji.
+2. Kliknij w link "Regulamin".
+
+**Oczekiwany rezultat:**
+Przekierowanie na adres /regulamin.
+
+---
+
+#### Przypadek 10: Sprawdzenie przekierowania do strony "Polityka Prywatności"
+1. Otwórz stronę z formularzem rejestracji.
+2. Kliknij w link "Polityka Prywatności".
+
+**Oczekiwany rezultat:**
+Przekierowanie na adres /polityka-prywatnosci.
+
+---
+
+### Do zgłoszenia /dopytania
+- Wpisanie samego znaku "-" nie powoduje błędu walidacji (brak danych co do oczekiwanego rezultatu; przypuszczalnie powinno być traktowane jak spacja i nie móc występować samodzielnie).
+- Spacja na początku pola "Imię" jest dozwolona (" Daria").

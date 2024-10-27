@@ -764,7 +764,7 @@ export const users: User[] = [
         lastname: 'Kowalski',
         password:'Password1!',
         date: '1990-01-15',
-        language: 'pl', // Przykład języka
+        language: 'pl',
         displayedLanguage: 'Polski',
         phone: '123456789',
     },

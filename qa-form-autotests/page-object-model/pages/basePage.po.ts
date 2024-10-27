@@ -1,9 +1,7 @@
-import type { Locator, Page } from '@playwright/test';
+import type { Page } from '@playwright/test';
 
 export default class BasePage {
     protected page: Page;
-
-    readonly sharedLocator: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -12,9 +10,7 @@ export default class BasePage {
     protected async navigateTo(path?: string): Promise<void> {
         if (path) {
             await this.page.goto(path);
-            await this.page.goto(path);
         } else {
-            await this.page.goto('/');
             await this.page.goto('/');
         }
     }
