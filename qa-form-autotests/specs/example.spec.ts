@@ -1,4 +1,4 @@
-import { test } from '../page-object-model';
+import { test } from '@page-object-models';
 import { users } from '../test-data/users';
 import { expect } from "playwright/test";
 
